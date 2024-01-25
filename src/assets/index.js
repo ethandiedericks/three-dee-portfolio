@@ -20,7 +20,7 @@ import bootstrap from "./tech/bootstrap.png";
 import git from "./tech/git.png";
 import docker from "./tech/docker.png";
 
-
+import shoecity from "./company/shoecity.png"
 import brightsparkz from "./company/brightsparkz.png";
 import ee from "./company/ee.png";
 
@@ -47,6 +47,7 @@ export {
   bootstrap,
   git,
   docker,
+  shoecity,
   ee,
   brightsparkz,
   flowfinance,

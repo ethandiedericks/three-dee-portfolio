@@ -16,6 +16,7 @@ import {
     docker,
     brightsparkz,
     ee,
+    shoecity,
     flowfinance,
     portfolio,
   } from "../assets";
@@ -24,6 +25,10 @@ import {
     {
       id: "about",
       title: "About",
+    },
+    {
+    id: "experience",
+    title: "Experience",
     },
     {
       id: "projects",
@@ -103,27 +108,39 @@ import {
   
   const experiences = [
     {
+      title: "Sales Consultant & Merchandiser",
+      company_name: "Shoe City",
+      icon: shoecity,
+      iconBg: "#383E56",
+      date: "2019 (casual)",
+      points: [
+        "Build and maintain strong relationships with clients through effective communication and understanding of their needs.",
+        "Conduct compelling and persuasive sales presentations to potential clients.",
+        "Provide exceptional customer service before, during, and after the sales process.",
+        "Monitor and manage inventory levels to prevent stockouts or overstock situations.",
+        "Ensure accurate and up-to-date pricing information is displayed for all products.",
+      ],
+    },
+    {
       title: "I.T Technician",
       company_name: "Elroid's Enterprise",
       icon: ee,
       iconBg: "#383E56",
-      date: "Nov 2016 - Feb 2023",
+      date: "Nov 2016 - Feb 2023 (full-time)",
       points: [
         "Setting up workstations with computers and necessary peripheral devices.",
-        "Checking computer hardware to ensure functionality.",
-        "Installing and configuring appropriate software and functions according to specifications.",
-        "Developing and maintaining local networks in ways that optimise performance.",
-        "Ensuring security and privacy of networks and computer systems", 
-        "Providing orientation and guidance to users on how to operate new software and computer equipment.",
-        "Performing troubleshooting to diagnose and resolve problems.",
+        "Stay informed about the features, benefits, and specifications of the products or services offered.",
+        "Continuously update knowledge on industry trends and competitive offerings",
+        "Provide technical support to end-users, addressing hardware and software-related inquiries.",
+        "Communicate technical solutions in a clear and understandable manner.",
       ],
     },
     {
       title: "Python & Math Tutor",
-      company_name: "BrightSparkz Tutors (part-time)",
+      company_name: "BrightSparkz Tutors",
       icon: brightsparkz,
       iconBg: "#E6DEDD",
-      date: "June 2023 - Present",
+      date: "June 2023 - Nov 2023 (part-time)",
       points: [
         "Teach Python data structures and algorithms.",
         "Encourage good programming principles.",
