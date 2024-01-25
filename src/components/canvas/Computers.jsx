@@ -1,3 +1,7 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
@@ -21,9 +25,9 @@ const Computers = ({ isMobile }) => {
         castShadow 
         shadow-mapSize={1024}
       />
-      <ambientLight intensity={1} />
+      <ambientLight intensity={0.75} />
 
-      <pointLight intensity={1.25} />
+      <pointLight intensity={1} />
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.7 : 0.75}
