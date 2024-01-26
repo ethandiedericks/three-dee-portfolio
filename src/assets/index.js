@@ -24,8 +24,8 @@ import shoecity from "./company/shoecity.png"
 import brightsparkz from "./company/brightsparkz.png";
 import ee from "./company/ee.png";
 
-import flowfinance from "./flowfinance.png";
-import portfolio from "./portfolio.png"
+import flowfinance from "./flowfinance.webp";
+import portfolio from "./portfolio.webp"
 
 export {
   logo,
