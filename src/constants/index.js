@@ -27,8 +27,8 @@ import {
       title: "About",
     },
     {
-    id: "experience",
-    title: "Experience",
+      id: "experience",
+      title: "Experience",
     },
     {
       id: "projects",

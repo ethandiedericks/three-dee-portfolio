@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
@@ -9,24 +8,19 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("../desktop_pc/scene.gltf");
+  const computer = useGLTF("./desktop_pc/scene.gltf");
 
   return (
     <mesh>
-      <hemisphereLight 
+      <hemisphereLight intensity={1} groundColor='black' />
+      <spotLight
+        position={[-20, 50, 10]}
+        angle={0.12}
+        penumbra={1}
         intensity={1}
-        groundColor='black' 
-      />
-      <spotLight 
-        position={[-20, 50, 10]} 
-        angle={0.15} 
-        penumbra={1} 
-        intensity={1} 
-        castShadow 
+        castShadow
         shadow-mapSize={1024}
       />
-      <ambientLight intensity={0.75} />
-
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
@@ -43,7 +37,7 @@ const ComputersCanvas = () => {
 
   useEffect(() => {
     // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 600px)");
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
 
     // Set the initial value of the `isMobile` state variable
     setIsMobile(mediaQuery.matches);

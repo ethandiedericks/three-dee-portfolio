@@ -1,14 +1,14 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
-import React, { useRef, useState } from "react";
-
+import React, { useRef, useState, useCallback, useMemo, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+
+const EarthCanvas = lazy(() => import("./canvas/Earth"));
 
 const Contact = () => {
   const formRef = useRef();
@@ -20,31 +20,33 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { target } = e;
     const { name, value } = target;
 
-    setForm({
-      ...form,
+    setForm((prevForm) => ({
+      ...prevForm,
       [name]: value,
-    });
-  };
+    }));
+  }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = useCallback((e) => {
     e.preventDefault();
     setLoading(true);
+
+    const emailjsConfig = {
+      from_name: form.name,
+      to_name: "Ethan Diedericks",
+      from_email: form.email,
+      to_email: import.meta.env.TO_EMAIL,
+      message: form.message,
+    };
 
     emailjs
       .send(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "Ethan Diedericks",
-          from_email: form.email,
-          to_email: import.meta.env.TO_EMAIL,
-          message: form.message,
-        },
+        emailjsConfig,
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
@@ -65,25 +67,19 @@ const Contact = () => {
           alert("Ahh, something went wrong. Please try again.");
         }
       );
-  };
+  }, [form]);
+
+  const slideInLeft = useMemo(() => slideIn("left", "tween", 0.2, 1), []);
+  const slideInRight = useMemo(() => slideIn("right", "tween", 0.2, 1), []);
 
   return (
-    <div
-      className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
-    >
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
-      >
+    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
+      <motion.div variants={slideInLeft} className='flex-[0.75] bg-black-100 p-8 rounded-2xl'>
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact:</h3>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
-        >
-          <label className='flex flex-col'>
+        <form ref={formRef} onSubmit={handleSubmit} className='mt-12 flex flex-col gap-8'>
+        <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Name</span>
             <input
               type='text'
@@ -126,11 +122,10 @@ const Contact = () => {
         </form>
       </motion.div>
 
-      <motion.div
-        variants={slideIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
-      >
-        <EarthCanvas />
+      <motion.div variants={slideInRight} className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'>
+        <Suspense fallback={<div>Loading...</div>}>
+          <EarthCanvas />
+        </Suspense>
       </motion.div>
     </div>
   );
