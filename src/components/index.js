@@ -1,12 +1,17 @@
-import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas } from './canvas';
-import Hero from './Hero';
-import Navbar from './Navbar';
-import About from './About';
-import Tech from './Tech';
-import Experience from './Experience';
-import Projects from './Projects';
-import Feedbacks from './Feedbacks';
-import Contact from './Contact';
+// Import dynamic chunks
+const EarthCanvas = () => import(/* webpackChunkName: "earthCanvas" */ './canvas');
+const BallCanvas = () => import(/* webpackChunkName: "ballCanvas" */ './canvas');
+const ComputersCanvas = () => import(/* webpackChunkName: "computersCanvas" */ './canvas');
+const StarsCanvas = () => import(/* webpackChunkName: "starsCanvas" */ './canvas');
+
+const Hero = () => import(/* webpackChunkName: "hero" */ './Hero');
+const Navbar = () => import(/* webpackChunkName: "navbar" */ './Navbar');
+const About = () => import(/* webpackChunkName: "about" */ './About');
+const Tech = () => import(/* webpackChunkName: "tech" */ './Tech');
+const Experience = () => import(/* webpackChunkName: "experience" */ './Experience');
+const Projects = () => import(/* webpackChunkName: "projects" */ './Projects');
+const Feedbacks = () => import(/* webpackChunkName: "feedbacks" */ './Feedbacks');
+const Contact = () => import(/* webpackChunkName: "contact" */ './Contact');
 
 export {
   Hero,
@@ -21,4 +26,4 @@ export {
   BallCanvas, 
   ComputersCanvas, 
   StarsCanvas
-}
+};
