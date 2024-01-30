@@ -1,8 +1,5 @@
 import logo from "./logo.svg";
 import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
 import github from "./github.png";
 import live from "./live.png";
 import menu from "./menu.svg";
@@ -26,13 +23,11 @@ import ee from "./company/ee.png";
 
 import flowfinance from "./flowfinance.webp";
 import portfolio from "./portfolio.webp"
+import me from "./me.png"
 
 export {
   logo,
   backend,
-  creator,
-  mobile,
-  web,
   github,
   menu,
   close,
@@ -52,5 +47,6 @@ export {
   brightsparkz,
   flowfinance,
   portfolio,
+  me,
   live,
 };

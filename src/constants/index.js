@@ -1,8 +1,4 @@
 import {
-    mobile,
-    backend,
-    creator,
-    web,
     python,
     csharp,
     javascript,
@@ -19,6 +15,7 @@ import {
     shoecity,
     flowfinance,
     portfolio,
+    me,
   } from "../assets";
   
   export const navLinks = [
@@ -42,20 +39,8 @@ import {
   
   const services = [
     {
-      title: "Web Developer",
-      icon: web,
-    },
-    {
-      title: "React Native Developer",
-      icon: mobile,
-    },
-    {
-      title: "Backend Developer",
-      icon: backend,
-    },
-    {
-      title: "Content Creator",
-      icon: creator,
+      title: "ethan",
+      icon: me,
     },
   ];
   
