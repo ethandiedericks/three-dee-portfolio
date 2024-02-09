@@ -24,12 +24,12 @@ import {
       title: "About",
     },
     {
-      id: "experience",
-      title: "Experience",
-    },
-    {
       id: "projects",
       title: "Projects",
+    },
+    {
+      id: "experience",
+      title: "Experience",
     },
     {
       id: "contact",
